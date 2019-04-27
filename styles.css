@@ -23,6 +23,7 @@ input {
 	font-size: 8em;
 	text-align: center;
 	font-family: 'Indie Flower', cursive, sans-serif;
+	outline: none;
 }
 
 .fahrenheit {
