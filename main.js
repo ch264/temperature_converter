@@ -3,6 +3,11 @@ let celciusInput = document.querySelector(".celsius > input");
 let fahrenheitInput = document.querySelector(".fahrenheit > input");
 let kelvinInput = document.querySelector(".kelvin > input");
 
+// round output number to 2 decimal points
+function roundNum(num) {
+	return Math.round(num * 100)/100
+}
+
 // refractor function 
 function celsiusToFahrenheitAndKelvin() {
 	// grab the input value, convert to float number (decimal number)
@@ -11,25 +16,26 @@ function celsiusToFahrenheitAndKelvin() {
 	let fTemp = (cTemp * (9/5)) + 32;
 	let kTemp = cTemp + 273.15;
 	// show converted temperatures
-	fahrenheitInput.value = fTemp;
-	kelvinInput.value = kTemp;
+	fahrenheitInput.value = roundNum(fTemp);
+	kelvinInput.value = roundNum(kTemp);
 }
 
 function fahrenheitToCelsiusAndKelvin() {
 	let fTemp = parseFloat(fahrenheitInput.value);
 	let cTemp = (fTemp - 32) * (5/9);
 	let kTemp = (fTemp + 459.67) * (5/9);
-	celciusInput.value = cTemp;
-	kelvinInput.value = kTemp;
+	celciusInput.value = roundNum(cTemp);
+	kelvinInput.value = roundNum(kTemp);
 }
+
 function kelvinToCelsiusAndFahrenheit() {
 	let kTemp = parseFloat(kelvinInput.value);
 	let cTemp = kTemp - 273.15;
 	let fTemp = (9/5) * (kTemp -273) + 32;
 	celciusInput.value = cTemp;
 	kelvinInput.value = kTemp;
-	celciusInput.value = cTemp;
-	fahrenheitInput.value = fTemp;
+	celciusInput.value = roundNum(cTemp);
+	fahrenheitInput.value = roundNum(fTemp);
 }
 
 // add event handlers to input fields
