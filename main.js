@@ -3,8 +3,8 @@ let celciusInput = document.querySelector(".celsius > input");
 let fahrenheitInput = document.querySelector(".fahrenheit > input");
 let kelvinInput = document.querySelector(".kelvin > input");
 
-// add event handlers to input fields
-celciusInput.addEventListener('input', function() {
+// refractor function 
+function celsiusToFahrenheitAndKelvin() {
 	// grab the input value, convert to float number (decimal number)
 	let cTemp = parseFloat(celciusInput.nodeValue);
 	// convert temperatures
@@ -13,7 +13,12 @@ celciusInput.addEventListener('input', function() {
 	// show converted temperatures
 	fahrenheitInput.value = fTemp;
 	kelvinInput.value = kTemp;
-	})
+}
+
+// add event handlers to input fields
+celciusInput.addEventListener('input', celsiusToFahrenheitAndKelvin);
+
+
 
 fahrenheitInput.addEventListener('input', function() {
 
