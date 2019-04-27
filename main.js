@@ -1,5 +1,5 @@
 // store iput in celsius div in variable
-let celciusInput = document.querySelector(".celsius > input");
+let celsiusInput = document.querySelector(".celsius > input");
 let fahrenheitInput = document.querySelector(".fahrenheit > input");
 let kelvinInput = document.querySelector(".kelvin > input");
 
@@ -11,7 +11,7 @@ function roundNum(num) {
 // refractor function 
 function celsiusToFahrenheitAndKelvin() {
 	// grab the input value, convert to float number (decimal number)
-	let cTemp = parseFloat(celciusInput.nodeValue);
+	let cTemp = parseFloat(celsiusInput.value);
 	// convert temperatures
 	let fTemp = (cTemp * (9/5)) + 32;
 	let kTemp = cTemp + 273.15;
@@ -24,7 +24,7 @@ function fahrenheitToCelsiusAndKelvin() {
 	let fTemp = parseFloat(fahrenheitInput.value);
 	let cTemp = (fTemp - 32) * (5/9);
 	let kTemp = (fTemp + 459.67) * (5/9);
-	celciusInput.value = roundNum(cTemp);
+	celsiusInput.value = roundNum(cTemp);
 	kelvinInput.value = roundNum(kTemp);
 }
 
@@ -32,16 +32,19 @@ function kelvinToCelsiusAndFahrenheit() {
 	let kTemp = parseFloat(kelvinInput.value);
 	let cTemp = kTemp - 273.15;
 	let fTemp = (9/5) * (kTemp -273) + 32;
-	celciusInput.value = cTemp;
+	celsiusInput.value = cTemp;
 	kelvinInput.value = kTemp;
-	celciusInput.value = roundNum(cTemp);
+	celsiusInput.value = roundNum(cTemp);
 	fahrenheitInput.value = roundNum(fTemp);
 }
 
-// add event handlers to input fields
-celciusInput.addEventListener('input', celsiusToFahrenheitAndKelvin);
-fahrenheitInput.addEventListener('input', fahrenheitToCelsiusAndKelvin);
-kelvinInput.addEventListener('input', kelvinToCelsiusAndFahrenheit);
+function main() {
+	// add event handlers to input fields
+	celsiusInput.addEventListener('input', celsiusToFahrenheitAndKelvin);
+	fahrenheitInput.addEventListener('input', fahrenheitToCelsiusAndKelvin);
+	kelvinInput.addEventListener('input', kelvinToCelsiusAndFahrenheit);
+}
 
+main();
 
 
