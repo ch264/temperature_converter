@@ -15,18 +15,25 @@ function celsiusToFahrenheitAndKelvin() {
 	kelvinInput.value = kTemp;
 }
 
+function fahrenheitToCelsiusAndKelvin() {
+	let fTemp = parseFloat(fahrenheitInput.value);
+	let cTemp = (fTemp - 32) * (5/9);
+	let kTemp = (fTemp + 459.67) * (5/9);
+	celciusInput.value = cTemp;
+	kelvinInput.value = kTemp;
+}
+function kelvinToCelsiusAndFahrenheit() {
+	let fTemp = parseFloat(fahrenheitInput.value);
+	let cTemp = (fTemp - 32) * (5/9);
+	let kTemp = (fTemp + 459.67) * (5/9);
+	celciusInput.value = cTemp;
+	kelvinInput.value = kTemp;
+}
+
 // add event handlers to input fields
 celciusInput.addEventListener('input', celsiusToFahrenheitAndKelvin);
+fahrenheitInput.addEventListener('input', fahrenheitToCelsiusAndKelvin);
+kelvinInput.addEventListener('input', kelvinToCelsiusAndFahrenheit);
 
 
 
-fahrenheitInput.addEventListener('input', function() {
-
-})
-kelvinInput.addEventListener('input', function() {
-
-})
-
-
-
-console.log(celciusInput);
